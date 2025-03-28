@@ -1,4 +1,4 @@
-#cloud-config BC
+#cloud-config BC qcow2 https://yum.oracle.com/oracle-linux-templates.html
 disable_root: false
 package_update: true
 packages:
@@ -19,8 +19,6 @@ users:
     hashed_passwd: $y$j9T$wpgb1UZ/O0muEiryHV8PL1$O.VdWAOcm34AXe12KSKdHUYR4.Y7E1Pz9xrdsgMzq7B
     lock_passwd: false
     shell: /bin/bash
-    ssh_authorized_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAm6iYXQMnxX4aqVB1tqBqqyvj+NT+MrXc9IB/JxksQk bf
   - name: rancher
     hashed_passwd: $y$j9T$wpgb1UZ/O0muEiryHV8PL1$O.VdWAOcm34AXe12KSKdHUYR4.Y7E1Pz9xrdsgMzq7B
     lock_passwd: false
