@@ -13,7 +13,7 @@ runcmd:
   - - sysctl
     - -w
     - net.ipv6.conf.all.disable_ipv6=1
-ssh_pwauth: True
+ssh_pwauth: False
 users:
   - name: root
     hashed_passwd: $y$j9T$wpgb1UZ/O0muEiryHV8PL1$O.VdWAOcm34AXe12KSKdHUYR4.Y7E1Pz9xrdsgMzq7B
