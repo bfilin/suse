@@ -1,0 +1,32 @@
+#cloud-config BC
+disable_root: false
+package_update: true
+packages:
+  - qemu-guest-agent
+  - vim
+  - tmux
+runcmd:
+  - - systemctl
+    - enable
+    - --now
+    - qemu-guest-agent.service
+  - - sysctl
+    - -w
+    - net.ipv6.conf.all.disable_ipv6=1
+ssh_pwauth: True
+users:
+  - name: root
+    hashed_passwd: $y$j9T$wpgb1UZ/O0muEiryHV8PL1$O.VdWAOcm34AXe12KSKdHUYR4.Y7E1Pz9xrdsgMzq7B
+    lock_passwd: false
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAm6iYXQMnxX4aqVB1tqBqqyvj+NT+MrXc9IB/JxksQk bf
+  - name: rancher
+    hashed_passwd: $y$j9T$wpgb1UZ/O0muEiryHV8PL1$O.VdWAOcm34AXe12KSKdHUYR4.Y7E1Pz9xrdsgMzq7B
+    lock_passwd: false
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAm6iYXQMnxX4aqVB1tqBqqyvj+NT+MrXc9IB/JxksQk bf
+    sudo: ALL=(ALL) NOPASSWD:ALL
+ssh_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAm6iYXQMnxX4aqVB1tqBqqyvj+NT+MrXc9IB/JxksQk bf
